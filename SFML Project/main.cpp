@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
 
 int main()
 {
@@ -11,7 +12,17 @@ int main()
 		{
 			switch (evnt.type)
 			{
-				case 
+			case sf::Event::Closed:
+				window.close();
+				break;
+			case sf::Event::Resized:
+				printf("Height = %i , Width = %i\n", evnt.size.height, evnt.size.width);
+				break;
+			case sf::Event::TextEntered:
+				if (evnt.text.unicode<128)
+				{
+					printf("%c", evnt.text.unicode);
+				}
 			}
 		}
 	}
